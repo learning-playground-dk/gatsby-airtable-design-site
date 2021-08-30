@@ -12,11 +12,12 @@ import Sidebar from './Sidebar'
 import { GatsbyContext } from '../context/context'
 
 const Layout = ({ children }) => {
-  
-
   return (
     <>
+      <Navbar />
+      {/* <Sidebar/> */}
       {children}
+      <Footer />
     </>
   )
 }
