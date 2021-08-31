@@ -11,11 +11,16 @@ import {
 } from '../components'
 
 const HomePage = ({ data }) => {
-  console.log(data)
+  // get data from query
+  const {
+    allAirtable: { nodes: projects },
+  } = data
+
   return (
     <Layout>
       <Hero />
       <About />
+      <Projects projects={projects} title="latest projects" />
     </Layout>
   )
 }
