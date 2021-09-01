@@ -13,7 +13,7 @@ import { GatsbyContext } from '../context/context'
 
 const Layout = ({ children }) => {
   // get data from context
-  const { links, isSidebarOpen } = useContext(GatsbyContext)
+  const { isSidebarOpen } = useContext(GatsbyContext)
 
   // return
   return (

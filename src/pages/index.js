@@ -4,7 +4,7 @@ import {
   Layout,
   Hero,
   About,
-  Projects,
+  // Projects,
   Seo,
   Survey,
   Slider,
