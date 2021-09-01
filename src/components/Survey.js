@@ -25,6 +25,33 @@ const Survey = () => {
     setLoading(false)
   }
 
+  // give vote function
+  const giveVote = async id => {
+    setLoading(true)
+
+    const tempItems = items.map(item => {
+      if (item.id === id) {
+        let { id, fields } = item
+        fields = { ...fields, votes: fields.votes + 1 }
+        return { id, fields }
+      } else {
+        return item
+      }
+    })
+
+    const records = await base('Survey')
+      .update(tempItems)
+      .catch(e => console.log(e))
+
+    const newItems = records.map(record => {
+      const { id, fields } = record
+      return { id, fields }
+    })
+
+    setItems(newItems)
+    setLoading(false)
+  }
+
   // useEffect
   useEffect(() => {
     getRecords()
@@ -36,32 +63,27 @@ const Survey = () => {
       <div className="container">
         <Title title="survey" />
         <h3>most important room in the house?</h3>
-        {loading ? (
-          <h3>loading...</h3>
-        ) : (
-          <ul>
-            {items.map(item => {
-              const {
-                id,
-                fields: { name, votes },
-              } = item
-              return (
-                <li key={id}>
-                  <div className="key">
-                    {name.toUpperCase().substring(0, 2)}
-                  </div>
-                  <div>
-                    <h4>{name}</h4>
-                    <p>{votes}</p>
-                  </div>
-                  <button onClick={() => console.log('ssup')}>
-                    <FaVoteYea />
-                  </button>
-                </li>
-              )
-            })}
-          </ul>
-        )}
+
+        <ul>
+          {items.map(item => {
+            const {
+              id,
+              fields: { name, votes },
+            } = item
+            return (
+              <li key={id}>
+                <div className="key">{name.toUpperCase().substring(0, 2)}</div>
+                <div>
+                  <h4>{name}</h4>
+                  <p>{votes}</p>
+                </div>
+                <button onClick={() => giveVote(id)} disabled={loading}>
+                  <FaVoteYea />
+                </button>
+              </li>
+            )
+          })}
+        </ul>
       </div>
     </Wrapper>
   )
