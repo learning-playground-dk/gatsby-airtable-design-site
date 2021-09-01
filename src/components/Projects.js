@@ -9,11 +9,23 @@ const Projects = ({ title, projects: data, page }) => {
   // set state variable
   const [projects, setProjects] = React.useState(data)
 
+  // logic for search btns
+  const setBackToAll = () => {
+    setProjects(data)
+  }
+
   // jsx
   return (
     <Wrapper className="section">
       <Title title={title || 'projects'} />
       {/* filter btns */}
+      {page && (
+        <SearchButtons
+          projects={data}
+          setProjects={setProjects}
+          setBackToAll={setBackToAll}
+        />
+      )}
 
       <div className="section-center">
         {projects.map(item => {
