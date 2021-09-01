@@ -5,6 +5,7 @@ import {
   Hero,
   About,
   Projects,
+  Seo,
   Survey,
   Slider,
   GridProjects,
@@ -18,13 +19,16 @@ const HomePage = ({ data }) => {
   } = data
 
   return (
-    <Layout>
-      <Hero />
-      <About />
-      <GridProjects projects={projects} title="latest projects" />
-      <Survey />
-      <Slider customers={customers} />
-    </Layout>
+    <>
+      <Seo title="Home" />
+      <Layout>
+        <Hero />
+        <About />
+        <GridProjects projects={projects} title="latest projects" />
+        <Survey />
+        <Slider customers={customers} />
+      </Layout>
+    </>
   )
 }
 

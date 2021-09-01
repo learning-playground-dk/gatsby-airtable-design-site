@@ -1,5 +1,5 @@
 import React from 'react'
-import { Layout } from '../../components'
+import { Layout, Seo } from '../../components'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 
@@ -9,16 +9,19 @@ const Payments = props => {
 
   // jsx
   return (
-    <Layout>
-      <Wrapper>
-        <div>
-          <h1>{path}</h1>
-          <Link to="/" className="btn">
-            home
-          </Link>
-        </div>
-      </Wrapper>
-    </Layout>
+    <>
+      <Seo title="Products" />
+      <Layout>
+        <Wrapper>
+          <div>
+            <h1>{path}</h1>
+            <Link to="/" className="btn">
+              home
+            </Link>
+          </div>
+        </Wrapper>
+      </Layout>
+    </>
   )
 }
 

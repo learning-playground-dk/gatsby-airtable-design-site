@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
-import { Layout, Projects, Algolia } from '../components'
+import { Layout, Projects, Algolia, Seo } from '../components'
 
 const ProjectsPage = ({ data }) => {
   // get data from query
@@ -10,12 +10,15 @@ const ProjectsPage = ({ data }) => {
   } = data
 
   return (
-    <Wrapper>
-      <Layout>
-        <Projects title="our projects" projects={projects} page />
-        <Algolia />
-      </Layout>
-    </Wrapper>
+    <>
+      <Seo title="Projects" />
+      <Wrapper>
+        <Layout>
+          <Projects title="our projects" projects={projects} page />
+          <Algolia />
+        </Layout>
+      </Wrapper>
+    </>
   )
 }
 
