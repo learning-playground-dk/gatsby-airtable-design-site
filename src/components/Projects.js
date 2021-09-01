@@ -26,6 +26,7 @@ const Projects = ({ title, projects: data, page }) => {
                 <GatsbyImage
                   image={getImage(image.localFiles[0])}
                   className="img"
+                  alt={name}
                 />
                 <div className="info">
                   <p>- {type} -</p>
