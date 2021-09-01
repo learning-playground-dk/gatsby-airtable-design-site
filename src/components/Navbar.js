@@ -5,9 +5,13 @@ import { GoThreeBars } from 'react-icons/go'
 import { Link } from 'gatsby'
 import NavLink from './NavLink'
 import { GatsbyContext } from '../context/context'
+
 const Navbar = () => {
   // get data from context
-  const { showSidebar } = useContext(GatsbyContext)
+  const { showSidebar, links } = useContext(GatsbyContext)
+
+  // unique links for nav
+  const tempLinks = [...new Set(links.map(link => link.page))]
 
   // jsx
   return (
@@ -23,15 +27,9 @@ const Navbar = () => {
         </div>
 
         <ul className="nav-links">
-          <li>
-            <button>products</button>
-          </li>
-          <li>
-            <button>developers</button>
-          </li>
-          <li>
-            <button>company</button>
-          </li>
+          {tempLinks.map((page, index) => (
+            <NavLink key={index} page={page} />
+          ))}
         </ul>
       </div>
     </Wrapper>
