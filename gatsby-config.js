@@ -5,12 +5,12 @@ require('dotenv').config({
 module.exports = {
   siteMetadata: {
     title: `Design Shop`,
-    description: `Gatsby Airtable Example. Built using Airtable, Algolia Search, Gatsby Background Image plugin and  React Context API. Containts two sliders, real-time Airtable updates and submenus. Styled using Styled-Components. `,
-    author: `@johnsmilga`,
+    description: `Gatsby Airtable Example. Built using Airtable, Algolia Search, Gatsby Background Image plugin and React Context API. Contains a slider, real-time Airtable updates and submenus. Styled using Styled-Components. `,
+    author: `@yodkwtf`,
     titleTemplate: `%s | Design Site`,
-    url: `https://gatsby-airtable-design-project.netlify.app/`,
+    url: `https://designsite-gatsby-dk.netlify.app/`,
     image: `mainBcg.png`,
-    twitterUsername: `@john_smilga`,
+    twitterUsername: `@yodkwtf`,
   },
   plugins: [
     `gatsby-plugin-image`,
