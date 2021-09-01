@@ -14,6 +14,7 @@ const HomePage = ({ data }) => {
   // get data from query
   const {
     allAirtable: { nodes: projects },
+    customers: { nodes: customers },
   } = data
 
   return (
@@ -21,6 +22,7 @@ const HomePage = ({ data }) => {
       <Hero />
       <About />
       <Projects projects={projects} title="latest projects" />
+      <Slider customers={customers} />
     </Layout>
   )
 }
@@ -46,6 +48,29 @@ export const query = graphql`
           }
         }
         id
+      }
+    }
+
+    customers: allAirtable(filter: { table: { eq: "Customers" } }) {
+      nodes {
+        id
+        data {
+          name
+          quote
+          title
+          image {
+            localFiles {
+              childImageSharp {
+                gatsbyImageData(
+                  layout: FIXED
+                  placeholder: BLURRED
+                  width: 150
+                  height: 150
+                )
+              }
+            }
+          }
+        }
       }
     }
   }
