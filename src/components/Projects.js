@@ -40,7 +40,7 @@ const Projects = ({ title, projects: data, page }) => {
 
       {/* all projects btn */}
       {!page && (
-        <Link to="/" className="btn">
+        <Link to="/projects" className="btn">
           all projects
         </Link>
       )}
