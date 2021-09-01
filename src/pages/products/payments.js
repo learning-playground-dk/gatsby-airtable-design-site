@@ -1,9 +1,25 @@
-import React from "react"
-import { Layout } from "../../components"
-import styled from "styled-components"
-import { Link } from "gatsby"
-const Payments = () => {
-  return <h2>payments page</h2>
+import React from 'react'
+import { Layout } from '../../components'
+import styled from 'styled-components'
+import { Link } from 'gatsby'
+
+const Payments = props => {
+  // get path
+  const path = props.location.pathname.slice(1)
+
+  // jsx
+  return (
+    <Layout>
+      <Wrapper>
+        <div>
+          <h1>{path}</h1>
+          <Link to="/" className="btn">
+            home
+          </Link>
+        </div>
+      </Wrapper>
+    </Layout>
+  )
 }
 
 const Wrapper = styled.main`

@@ -13,15 +13,13 @@ import { GatsbyContext } from '../context/context'
 
 const Layout = ({ children }) => {
   // get data from context
-  const data = useContext(GatsbyContext)
-
-  console.log(data)
+  const { links, isSidebarOpen } = useContext(GatsbyContext)
 
   // return
   return (
     <>
       <Navbar />
-      {/* <Sidebar/> */}
+      {isSidebarOpen && <Sidebar />}
       {children}
       <Footer />
     </>
