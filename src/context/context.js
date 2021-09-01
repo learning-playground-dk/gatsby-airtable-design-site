@@ -6,11 +6,21 @@ const GatsbyContext = React.createContext()
 const GatsbyProvider = ({ children }) => {
   // setup states
   const [links] = useState(sublinks)
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true)
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false)
+
+  // toggle Sidebar functions
+  const showSidebar = () => {
+    setIsSidebarOpen(true)
+  }
+  const hideSidebar = () => {
+    setIsSidebarOpen(false)
+  }
 
   // return
   return (
-    <GatsbyContext.Provider value={{ links, isSidebarOpen }}>
+    <GatsbyContext.Provider
+      value={{ links, isSidebarOpen, showSidebar, hideSidebar }}
+    >
       {children}
     </GatsbyContext.Provider>
   )

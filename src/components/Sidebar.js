@@ -6,13 +6,13 @@ import { GatsbyContext } from '../context/context'
 
 const Sidebar = () => {
   // get data from context
-  const { links } = useContext(GatsbyContext)
+  const { links, hideSidebar } = useContext(GatsbyContext)
 
   // jsx
   return (
     <Wrapper>
       <div className="container">
-        <button>
+        <button onClick={hideSidebar}>
           <MdClose className="icon" />
         </button>
 
@@ -20,7 +20,7 @@ const Sidebar = () => {
           {links.map((link, index) => {
             const { url, label, icon } = link
             return (
-              <Link to={url} key={index}>
+              <Link to={url} key={index} onClick={hideSidebar}>
                 {icon} {label}
               </Link>
             )

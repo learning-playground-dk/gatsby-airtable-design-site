@@ -6,6 +6,10 @@ import { Link } from 'gatsby'
 import NavLink from './NavLink'
 import { GatsbyContext } from '../context/context'
 const Navbar = () => {
+  // get data from context
+  const { showSidebar } = useContext(GatsbyContext)
+
+  // jsx
   return (
     <Wrapper>
       <div className="nav-center">
@@ -13,7 +17,7 @@ const Navbar = () => {
           <Link to="/">
             <img src={logo} alt="logo" />
           </Link>
-          <button className="toggle-btn">
+          <button className="toggle-btn" onClick={showSidebar}>
             <GoThreeBars />
           </button>
         </div>
